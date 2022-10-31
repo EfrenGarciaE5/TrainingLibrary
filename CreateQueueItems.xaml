@@ -16,7 +16,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1076</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,1088</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateQueueItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -79,7 +79,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateQueueItems" sap:VirtualizedContainerService.HintSize="476,1011" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateQueueItems" sap:VirtualizedContainerService.HintSize="476,1023" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ItemsToProcess" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Queues" />
@@ -89,8 +89,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log " sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Uploading queue items&quot;]" />
-    <ui:ReadCsvFile DataTable="[dt_ItemsToProcess]" Delimitator="Comma" DisplayName="Read File With Work Items" FilePath="[in_FileToProcess]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_3" IncludeColumnNames="False" />
+    <ui:LogMessage DisplayName="Log " sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Uploading queue items&quot;]" />
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_ItemsToProcess]" Delimitator="Comma" DisplayName="Read File With Work Items" FilePath="[in_FileToProcess]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_3" />
     <ui:LogMessage DisplayName="Getting one column" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Getting one column&quot;]" />
     <ui:FilterDataTable DataTable="[dt_ItemsToProcess]" DisplayName="Get DT For The Queues" FilterRowsMode="[SelectMode.Keep]" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Queues]" SelectColumnsMode="[SelectMode.Keep]">
       <ui:FilterDataTable.Filters>
