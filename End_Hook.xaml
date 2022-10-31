@@ -1,0 +1,305 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="End_Hook" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Final report file created in previous steps" Name="in_FinalReportPath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Summary Field Names" Name="in_SummaryFieldNames" Type="InArgument(scg:List(x:String))" />
+    <x:Property sap2010:Annotation.AnnotationText="Result Records needed for the end treining task hook" Name="out_ResultRecords" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="summary message for the end task" Name="out_SummaryMessage" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Summary result JSON needed for end hook" Name="out_SummaryResultJson" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:End_Hook.in_FinalReportPath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:End_Hook.in_FinalReportPath>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>934,1030</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>End_Hook_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="74">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="24">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="End_Hook" sap:VirtualizedContainerService.HintSize="476,965" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_FinalReport" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Success" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Failed" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Skiped" />
+      <Variable x:TypeArguments="njl:JObject" Name="SummaryResult" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Generate Result Records" sap:VirtualizedContainerService.HintSize="434,302" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="ResultRecords" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadTextFile Content="[ResultRecords]" DisplayName="Read  Result JSON" FileName="ResultRecords.json" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Result Records: &quot;+out_ResultRecords]" />
+    </Sequence>
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_FinalReport]" Delimitator="Comma" DisplayName="Read Final Report" FilePath="[in_FinalReportPath]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <ui:FilterDataTable DataTable="[dt_FinalReport]" DisplayName="dt_Success" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Success]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[6]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["Completed"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <ui:FilterDataTable DataTable="[dt_FinalReport]" DisplayName="dt_Failed" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_Failed]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[6]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["Failed"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <ui:FilterDataTable DataTable="[dt_FinalReport]" DisplayName="dt_Skiped" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dt_Skiped]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[6]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["Skiped"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <Sequence DisplayName="Get Summary Result JSON" sap:VirtualizedContainerService.HintSize="434,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="s:String[]" Name="FieldNames" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Set Values" sap:VirtualizedContainerService.HintSize="333,22" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[out_SummaryMessage]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">["Total Records Processed: "+dt_FinalReport.Rows.Count.ToString+" / Success: "+dt_Success.Rows.Count.ToString+" / Failure: "+dt_Failed.Rows.Count.ToString+" / Skipped: "+dt_Skiped.Rows.Count.ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[FieldNames]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[in_SummaryFieldNames.ToArray]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="njl:JObject">[SummaryResult]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="njl:JObject">[New Newtonsoft.Json.Linq.JObject]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Loop Through Filed Names" sap:VirtualizedContainerService.HintSize="333,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[FieldNames]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="x:String">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Validate cases" sap:VirtualizedContainerService.HintSize="539,420" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[item.ToString.ToLower]" sap:VirtualizedContainerService.HintSize="497,330" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign x:Key="total" DisplayName="Summary Result" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="njl:JToken">[SummaryResult("Total")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="njl:JToken">[dt_FinalReport.Rows.Count]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="success" DisplayName="Success" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="njl:JToken">[SummaryResult("Success")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="njl:JToken">[dt_Success.Rows.Count]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="failure" DisplayName="Failed" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="njl:JToken">[SummaryResult("Failure")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="njl:JToken">[dt_Failed.Rows.Count]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="skipped" DisplayName="Skipped" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="njl:JToken">[SummaryResult("Skipped")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="njl:JToken">[dt_Skiped.Rows.Count]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Switch>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEach>
+      <Assign DisplayName="SummaryResultJson" sap:VirtualizedContainerService.HintSize="333,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_SummaryResultJson]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[SummaryResult.ToString(Newtonsoft.Json.Formatting.None)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333,79" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;SummaryResultJson: &quot;+ out_SummaryResultJson]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333,79" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Summary Message: &quot; + out_SummaryMessage]" />
+    </Sequence>
+  </Sequence>
+</Activity>

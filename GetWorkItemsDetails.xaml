@@ -1,0 +1,418 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetWorkItemsDetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Work Items URL coming from config something like &quot;https://acme-test.uipath.com/work-items&quot;" Name="in_WorkItemsURL" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Work Item ID given by the Queue" Name="in_WorkItemID" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Client ID extracted in the WI details" Name="out_ClientID" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Client name extracted by the WI details" Name="out_ClientName" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Country extracted by the WI details" Name="out_Country" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Date extracted by the WI details" Name="out_WIDDate" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="WorkItem ID extracted by the WI details" Name="out_WIID" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Type extracted by the WI details" Name="out_Type" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Hash text to be sent it to the HASH site" Name="out_HashText" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:GetWorkItemsDetails.in_WorkItemsURL>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GetWorkItemsDetails.in_WorkItemsURL>
+  <this:GetWorkItemsDetails.in_WorkItemID>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GetWorkItemsDetails.in_WorkItemID>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>934,692</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GetWorkItemsDetails_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetWorkItemsDetails" sap:VirtualizedContainerService.HintSize="376,627" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Getting Details" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting Details&quot;]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Open WorkItem ID Details " BrowserType="Chrome" DisplayName="Attach System1 Page" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="543f07204502e4f8ae54a0aeb1298573" Selector="&lt;html app='chrome.exe' title='ACME System 1 *' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,213" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To Item Details" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[in_WorkItemsURL+&quot;/&quot;+in_WorkItemID]" />
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BrowserScope>
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DisplayName="Get Details" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
+      <p:CVScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (380,324,48,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client ID:' (332,324,47,8)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get client ID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="c2e16175e738705b9cdedb7f6fea0b53" RefreshBefore="True" Result="[out_ClientID]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="332, 324, 47, 8" ElementType="Text" Text="Client ID:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="380, 324, 48, 8" ElementType="AnyWordGroup" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (399,339,81,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Glient Name:' (332,339,67,8)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get Client Name" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_2" InformativeScreenshot="22ac50655d236611fb8548703c103bf0" RefreshBefore="True" Result="[out_ClientName]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="332, 339, 67, 8" ElementType="Text" Text="Glient Name:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="399, 339, 81, 8" ElementType="AnyWordGroup" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (411,354,21,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client County:' (332,354,81,10)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get country" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_3" InformativeScreenshot="175bb6d315d6c28b84578f8166da54f3" RefreshBefore="True" Result="[out_Country]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="332, 354, 81, 10" ElementType="Text" Text="Client County:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="411, 354, 21, 10" ElementType="AnyText" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (664,324,49,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'wa:' (634,324,27,8)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get WIID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_4" InformativeScreenshot="5c813e8290030181f2cc7e6d42c03cc8" RefreshBefore="True" Result="[out_WIID]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="634, 324, 27, 8" ElementType="Text" Text="wa:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="664, 324, 49, 8" ElementType="AnyText" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (664,339,142,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Type:' (634,339,30,10)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get Type" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_5" InformativeScreenshot="0c52187937191694ee6f478dd3aecd66" RefreshBefore="True" Result="[out_Type]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="634, 339, 30, 10" ElementType="Text" Text="Type:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="664, 339, 142, 10" ElementType="AnyWordGroup" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (663,369,60,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Date:' (635,369,25,8)&quot;]" DesignTimeCacheId="193beb43-716a-4efe-98f1-1057d8502a34" DesignTimeScaleFactor="1" DisplayName="Get Date" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_6" InformativeScreenshot="e9c25f3e75717c0c8c5f3a54751a66b6" RefreshBefore="True" Result="[out_WIDDate]" Version="V3">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="635, 369, 25, 8" ElementType="Text" Text="Date:" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="663, 369, 60, 8" ElementType="AnyWordGroup" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+          </Sequence>
+        </ActivityAction>
+      </p:CVScope.Body>
+      <p:CVScope.DesignTimeCacheContainer>
+        <uc:CvCacheContainer>
+          <uc:CvCacheContainer.Caches>
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="4">
+              <uc:CVCache DisplayName="Details" Id="193beb43-716a-4efe-98f1-1057d8502a34" InformativeScreenshot="29eee077acbbfa52e4a3fb9824dc1340" LogicalPosition="0, 0" OcrText="J [Fl ACME System 1- Work ftems ~~ X [+ v= x&#xD;&#xA;&amp; &gt; CG @ acme-testuipath.com/work-items/88074213 arg x @AsOQ :&#xD;&#xA;[ACMELSystemy] Gm&#xD;&#xA;Work Items - Work Item Details&#xD;&#xA;Homme 7 Work lems 1 Vor lem Dela&#xD;&#xA;[ Galtuiae Glen Secunty Hach |&#xD;&#xA;Client Information Details Work ltem Details&#xD;&#xA;Client ID: XW773D wa: ssoraz1&#xD;&#xA;Glient Name: Shania Phurber Type: Calculate Cllent Seculy Hash&#xD;&#xA;Client County: lay Status: Open&#xD;&#xA;Date: 2017-07-41&#xD;&#xA;| # uate vin hem |&#xD;&#xA;‘Copyright © 2022 ACHE Systems" Position="0, 0">
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                    <uc:CvElementInfo Category="Button" Region="635, 404, 120, 27" />
+                    <uc:CvElementInfo Category="Icon" Region="262, 8, 19, 18" />
+                    <uc:CvElementInfo Category="Icon" Region="44, 41, 22, 22" />
+                    <uc:CvElementInfo Category="Icon" Region="76, 42, 21, 20" />
+                    <uc:CvElementInfo Category="Icon" Region="643, 410, 15, 14" />
+                    <uc:CvElementInfo Category="Button" Region="15, 2, 236, 32" />
+                    <uc:CvElementInfo Category="CloseButton" Region="224, 9, 16, 16" />
+                    <uc:CvElementInfo Category="Icon" Region="1206, 42, 20, 21" />
+                    <uc:CvElementInfo Category="Icon" Region="1135, 43, 21, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="1167, 42, 21, 21" />
+                    <uc:CvElementInfo Category="Icon" Region="1104, 43, 18, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="120, 43, 14, 16" />
+                    <uc:CvElementInfo Category="CloseButton" Region="1334, 5, 18, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="1239, 42, 20, 20" />
+                    <uc:CvElementInfo Category="Icon" Region="1271, 42, 18, 18" />
+                    <uc:CvElementInfo Category="Icon" Region="18, 7, 21, 20" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1197, 5, 19, 17" />
+                    <uc:CvElementInfo Category="MinimizeButton" Region="1242, 3, 21, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="1335, 40, 19, 23" />
+                    <uc:CvElementInfo Category="MaximizeButton" Region="1288, 3, 20, 20" />
+                    <uc:CvElementInfo Category="Icon" Region="12, 43, 22, 20" />
+                    <uc:CvElementInfo Category="Button" Region="1299, 39, 27, 26" />
+                    <uc:CvElementInfo Category="Icon" Region="1300, 39, 27, 26" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="12, 43, 22, 20" />
+                    <uc:CvElementInfo Category="InputBox" Region="509, 189, 608, 30" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1288, 4, 19, 19" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1239, 42, 20, 20" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1271, 42, 18, 18" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="12, 43, 22, 20" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1104, 43, 17, 17" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1135, 44, 21, 19" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1166, 42, 23, 21" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1206, 42, 21, 20" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1335, 5, 18, 16" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="294, 193, 75, 22" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1335, 5, 17, 18" />
+                    <uc:CvElementInfo Category="RadioButton" Confidence="Runtime" Region="368, 200, 11, 11" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="298, 199, 10, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1288, 5, 21, 19" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="43, 41, 23, 22" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="224, 9, 16, 15" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="293, 197, 12, 15" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="77, 42, 20, 19" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1334, 40, 21, 22" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1332, 39, 24, 25" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="124, 40, 396, 23" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="249, 3, 695, 30" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="371, 196, 102, 18" />
+                    <uc:CvElementInfo Category="MaximizeButton" Confidence="Runtime" Region="1270, 42, 19, 19" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1335, 4, 17, 17" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1300, 39, 25, 26" />
+                    <uc:CvElementInfo Category="MinimizeButton" Confidence="Runtime" Region="1196, 3, 19, 20" />
+                    <uc:CvElementInfo Category="MaximizeButton" Confidence="Runtime" Region="1335, 5, 17, 17" />
+                    <uc:CvElementInfo Category="RadioButton" Confidence="Runtime" Region="12, 43, 21, 20" />
+                    <uc:CvElementInfo Category="RadioButton" Confidence="Runtime" Region="299, 200, 9, 11" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="115, 38, 1043, 30" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1104, 43, 18, 18" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="128">
+                    <uc:OcrTextInfo Region="0, 5, 8, 29" Text="J" />
+                    <uc:OcrTextInfo Region="20, 9, 18, 16" Text="[Fl" />
+                    <uc:OcrTextInfo Region="44, 1, 32, 28" Text="ACME" />
+                    <uc:OcrTextInfo Region="74, 1, 42, 28" Text="System" />
+                    <uc:OcrTextInfo Region="116, 1, 18, 28" Text="1-" />
+                    <uc:OcrTextInfo Region="134, 1, 32, 28" Text="Work" />
+                    <uc:OcrTextInfo Region="170, 1, 30, 28" Text="ftems" />
+                    <uc:OcrTextInfo Region="200, 1, 24, 28" Text="~~" />
+                    <uc:OcrTextInfo Region="228, 13, 8, 8" Text="X" />
+                    <uc:OcrTextInfo Region="248, 5, 28, 28" Text="[+" />
+                    <uc:OcrTextInfo Region="1200, 11, 56, 6" Text="v=" />
+                    <uc:OcrTextInfo Region="1338, 9, 10, 10" Text="x" />
+                    <uc:OcrTextInfo Region="15, 45, 14, 14" Text="&amp;" />
+                    <uc:OcrTextInfo Region="47, 45, 14, 14" Text="&gt;" />
+                    <uc:OcrTextInfo Region="79, 45, 14, 14" Text="CG" />
+                    <uc:OcrTextInfo Region="122, 46, 8, 11" Text="@" />
+                    <uc:OcrTextInfo Region="143, 47, 273, 13" Text="acme-testuipath.com/work-items/88074213" />
+                    <uc:OcrTextInfo Region="1105, 45, 48, 14" Text="arg" />
+                    <uc:OcrTextInfo Region="1169, 45, 14, 14" Text="x" />
+                    <uc:OcrTextInfo Region="1208, 41, 115, 22" Text="@AsOQ" />
+                    <uc:OcrTextInfo Region="1343, 46, 3, 13" Text=":" />
+                    <uc:OcrTextInfo Region="245, 78, 126, 25" Text="[ACMELSystemy]" />
+                    <uc:OcrTextInfo Region="902, 83, 32, 12" Text="Gm" />
+                    <uc:OcrTextInfo Region="256, 142, 64, 20" Text="Work" />
+                    <uc:OcrTextInfo Region="328, 142, 65, 20" Text="Items" />
+                    <uc:OcrTextInfo Region="400, 154, 7, 2" Text="-" />
+                    <uc:OcrTextInfo Region="416, 142, 64, 20" Text="Work" />
+                    <uc:OcrTextInfo Region="488, 142, 52, 20" Text="Item" />
+                    <uc:OcrTextInfo Region="547, 142, 84, 20" Text="Details" />
+                    <uc:OcrTextInfo Region="268, 200, 30, 8" Text="Homme" />
+                    <uc:OcrTextInfo Region="301, 200, 4, 8" Text="7" />
+                    <uc:OcrTextInfo Region="311, 188, 28, 30" Text="Work" />
+                    <uc:OcrTextInfo Region="339, 188, 24, 30" Text="lems" />
+                    <uc:OcrTextInfo Region="370, 200, 4, 8" Text="1" />
+                    <uc:OcrTextInfo Region="380, 188, 24, 30" Text="Vor" />
+                    <uc:OcrTextInfo Region="408, 200, 21, 8" Text="lem" />
+                    <uc:OcrTextInfo Region="432, 200, 32, 8" Text="Dela" />
+                    <uc:OcrTextInfo Region="308, 249, 2, 30" Text="[" />
+                    <uc:OcrTextInfo Region="317, 247, 48, 30" Text="Galtuiae" />
+                    <uc:OcrTextInfo Region="364, 247, 28, 30" Text="Glen" />
+                    <uc:OcrTextInfo Region="394, 247, 42, 30" Text="Secunty" />
+                    <uc:OcrTextInfo Region="438, 247, 24, 30" Text="Hach" />
+                    <uc:OcrTextInfo Region="1056, 249, 2, 30" Text="|" />
+                    <uc:OcrTextInfo Region="332, 300, 36, 10" Text="Client" />
+                    <uc:OcrTextInfo Region="371, 300, 66, 10" Text="Information" />
+                    <uc:OcrTextInfo Region="442, 300, 42, 10" Text="Details" />
+                    <uc:OcrTextInfo Region="634, 300, 32, 10" Text="Work" />
+                    <uc:OcrTextInfo Region="670, 300, 28, 10" Text="ltem" />
+                    <uc:OcrTextInfo Region="700, 300, 42, 10" Text="Details" />
+                    <uc:OcrTextInfo Region="332, 324, 30, 8" Text="Client" />
+                    <uc:OcrTextInfo Region="364, 324, 15, 8" Text="ID:" />
+                    <uc:OcrTextInfo Region="380, 324, 48, 8" Text="XW773D" />
+                    <uc:OcrTextInfo Region="634, 324, 27, 8" Text="wa:" />
+                    <uc:OcrTextInfo Region="664, 324, 49, 8" Text="ssoraz1" />
+                    <uc:OcrTextInfo Region="332, 339, 30, 8" Text="Glient" />
+                    <uc:OcrTextInfo Region="364, 339, 35, 8" Text="Name:" />
+                    <uc:OcrTextInfo Region="399, 339, 36, 8" Text="Shania" />
+                    <uc:OcrTextInfo Region="438, 339, 42, 8" Text="Phurber" />
+                    <uc:OcrTextInfo Region="634, 339, 30, 10" Text="Type:" />
+                    <uc:OcrTextInfo Region="664, 339, 45, 8" Text="Calculate" />
+                    <uc:OcrTextInfo Region="711, 339, 30, 8" Text="Cllent" />
+                    <uc:OcrTextInfo Region="741, 339, 42, 10" Text="Seculy" />
+                    <uc:OcrTextInfo Region="782, 339, 24, 8" Text="Hash" />
+                    <uc:OcrTextInfo Region="332, 354, 30, 8" Text="Client" />
+                    <uc:OcrTextInfo Region="364, 354, 49, 10" Text="County:" />
+                    <uc:OcrTextInfo Region="411, 354, 21, 10" Text="lay" />
+                    <uc:OcrTextInfo Region="635, 354, 35, 8" Text="Status:" />
+                    <uc:OcrTextInfo Region="673, 354, 28, 10" Text="Open" />
+                    <uc:OcrTextInfo Region="635, 369, 25, 8" Text="Date:" />
+                    <uc:OcrTextInfo Region="663, 369, 60, 8" Text="2017-07-41" />
+                    <uc:OcrTextInfo Region="634, 405, 2, 24" Text="|" />
+                    <uc:OcrTextInfo Region="644, 410, 8, 11" Text="#" />
+                    <uc:OcrTextInfo Region="658, 401, 36, 32" Text="uate" />
+                    <uc:OcrTextInfo Region="694, 401, 27, 32" Text="vin" />
+                    <uc:OcrTextInfo Region="720, 401, 21, 32" Text="hem" />
+                    <uc:OcrTextInfo Region="750, 405, 2, 24" Text="|" />
+                    <uc:OcrTextInfo Region="308, 521, 160, 10" Text="‘Copyright" />
+                    <uc:OcrTextInfo Region="354, 509, 10, 30" Text="©" />
+                    <uc:OcrTextInfo Region="364, 509, 28, 30" Text="2022" />
+                    <uc:OcrTextInfo Region="391, 509, 28, 30" Text="ACHE" />
+                    <uc:OcrTextInfo Region="421, 521, 49, 10" Text="Systems" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+            </scg:List>
+          </uc:CvCacheContainer.Caches>
+        </uc:CvCacheContainer>
+      </p:CVScope.DesignTimeCacheContainer>
+      <p:CVScope.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+        </ActivityFunc>
+      </p:CVScope.OCREngine>
+      <p:CVScope.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1952a354-8efc-48d4-ad6e-d65482dc9639" InformativeScreenshot="25c0776fa8515eb9050700926db80cab" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Work Items' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </p:CVScope.Target>
+      <p:CVScope.UseLocalServer>
+        <InArgument x:TypeArguments="x:Boolean" />
+      </p:CVScope.UseLocalServer>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:CVScope>
+    <Assign DisplayName="Set Hash Text" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_HashText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[out_ClientID+"-"+out_ClientName+"-"+out_Country]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Finish Getting Details" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Finish Getting Details&quot;]" />
+  </Sequence>
+</Activity>
