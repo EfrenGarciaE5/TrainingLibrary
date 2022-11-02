@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1030</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,851</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>End_Hook_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -85,7 +85,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="End_Hook" sap:VirtualizedContainerService.HintSize="476,965" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activoty is in charge of get the number of success, failes and skip transactions, information that will send to the end task activity.&#xD;&#xA;" DisplayName="End_Hook" sap:VirtualizedContainerService.HintSize="476,786" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_FinalReport" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Success" />
@@ -96,15 +96,16 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Generate Result Records" sap:VirtualizedContainerService.HintSize="434,302" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Generate Result Records" sap:VirtualizedContainerService.HintSize="434,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ResultRecords" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,531</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,562</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>System1GetWorkItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -81,13 +81,14 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="System1GetWorkItems" sap:VirtualizedContainerService.HintSize="476,466" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge ot get the work items located in the ACME site" DisplayName="System1GetWorkItems" sap:VirtualizedContainerService.HintSize="476,497" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Getting work items" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting work items&quot;]" />
+    <ui:LogMessage DisplayName="Getting work items" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Getting work items&quot;]" />
     <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="AttaExtract DT" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="75d8161561b36908046ebcda1bcfb213" Selector="&lt;html app='chrome.exe' title='ACME System 1 -*' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">

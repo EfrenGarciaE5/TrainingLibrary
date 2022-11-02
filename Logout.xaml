@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Logout" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="934,780" sap2010:WorkflowViewState.IdRef="Logout_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Logout" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="934,417" sap2010:WorkflowViewState.IdRef="Logout_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -62,15 +62,20 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Logout" sap:VirtualizedContainerService.HintSize="476,715" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Activity in charge of logout ACME site" DisplayName="Logout" sap:VirtualizedContainerService.HintSize="242,185" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="b62a83c6-0e80-49a8-a764-5a6315d99c18" DisplayName="CV Screen Scope 'chrome.exe ACME'" sap:VirtualizedContainerService.HintSize="434,623" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
+    <p:CVScope DelayBefore="{x:Null}" Server="{x:Null}" ContinueOnError="True" CvMethod="ElementDetection, OCR" DesignTimeCacheId="b62a83c6-0e80-49a8-a764-5a6315d99c18" DisplayName="CV Screen Scope 'chrome.exe ACME'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
       <p:CVScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -121,11 +126,14 @@
           </Sequence>
         </ActivityAction>
       </p:CVScope.Body>
+      <p:CVScope.DesignTimeCache>
+        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
+      </p:CVScope.DesignTimeCache>
       <p:CVScope.DesignTimeCacheContainer>
         <uc:CvCacheContainer>
           <uc:CvCacheContainer.Caches>
             <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
-              <uc:CVCache DisplayName="Main" Id="b62a83c6-0e80-49a8-a764-5a6315d99c18" InformativeScreenshot="f36bb884a7e3579bca00ace52b837c30" LogicalPosition="0, 0" OcrText="JB acne syste 1- Dtbonrs x| + v= x&#xD;&#xA;€ &gt; CG @ ametestuipathcom aww @a0Q :&#xD;&#xA;AEEERED 9 oD SECEDE I;&#xD;&#xA;Dashboard&#xD;&#xA;Home  Dastboard&#xD;&#xA;Welcome, luisefren.garciasanchez@eb.ai&#xD;&#xA;to System 1.&#xD;&#xA;Wiis is your rt im gin in, pas make sare [ogo o User Opts = Rost Tot Dota&#xD;&#xA;( E&gt; Work Items J&#xD;&#xA;( EB Accounts J&#xD;&#xA;( == Checks J&#xD;&#xA;| moe |&#xD;&#xA;( B invoices J&#xD;&#xA;[ B intemal Invoices | ." Position="0, 0">
+              <uc:CVCache DisplayName="Main" Id="b62a83c6-0e80-49a8-a764-5a6315d99c18" InformativeScreenshot="f36bb884a7e3579bca00ace52b837c30" LogicalPosition="0, 0" OcrText="JB acne syste 1- Dtbonrs x| + v= x&#xA;€ &gt; CG @ ametestuipathcom aww @a0Q :&#xA;AEEERED 9 oD SECEDE I;&#xA;Dashboard&#xA;Home  Dastboard&#xA;Welcome, luisefren.garciasanchez@eb.ai&#xA;to System 1.&#xA;Wiis is your rt im gin in, pas make sare [ogo o User Opts = Rost Tot Dota&#xA;( E&gt; Work Items J&#xA;( EB Accounts J&#xA;( == Checks J&#xA;| moe |&#xA;( B invoices J&#xA;[ B intemal Invoices | ." Position="0, 0">
                 <uc:CVCache.CvUiElements>
                   <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
                     <uc:CvElementInfo Category="Button" Region="273, 459, 167, 39" />
@@ -284,7 +292,7 @@
                   </scg:List>
                 </uc:CVCache.OcrTexts>
               </uc:CVCache>
-              <uc:CVCache DisplayName="Screen CV Click - 'wen'" Id="a038f8b0-2734-40ce-b652-dfccd8066c41" InformativeScreenshot="269ce0ce50ddd65828ade27b3dec1078" LogicalPosition="0, 0" OcrText="J [Fl ACMESystem 1-&#xD;&#xA;Dashboard ~~ X 1 + v= x&#xD;&#xA;€ &gt; CG @ aometestuipsthcom gx @»0Q&#xD;&#xA;CCE SEED me wen I&#xD;&#xA;Dashboard&#xD;&#xA;Home / Dashboard&#xD;&#xA;Welcome, luisefren.garciasanchez@eb5.ai&#xD;&#xA;to System 1.&#xD;&#xA;IF this is your first time logging&#xD;&#xA;in, please make sure to go to User Options -&gt; Reset Test Data.&#xD;&#xA;2 User options ]&#xD;&#xA;&amp; Work Items ]&#xD;&#xA;8 Accounts ]&#xD;&#xA;== Checks ]&#xD;&#xA;| ] -" Position="0, 0">
+              <uc:CVCache DisplayName="Screen CV Click - 'wen'" Id="a038f8b0-2734-40ce-b652-dfccd8066c41" InformativeScreenshot="269ce0ce50ddd65828ade27b3dec1078" LogicalPosition="0, 0" OcrText="J [Fl ACMESystem 1-&#xA;Dashboard ~~ X 1 + v= x&#xA;€ &gt; CG @ aometestuipsthcom gx @»0Q&#xA;CCE SEED me wen I&#xA;Dashboard&#xA;Home / Dashboard&#xA;Welcome, luisefren.garciasanchez@eb5.ai&#xA;to System 1.&#xA;IF this is your first time logging&#xA;in, please make sure to go to User Options -&gt; Reset Test Data.&#xA;2 User options ]&#xA;&amp; Work Items ]&#xA;8 Accounts ]&#xA;== Checks ]&#xA;| ] -" Position="0, 0">
                 <uc:CVCache.CvUiElements>
                   <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
                     <uc:CvElementInfo Category="Button" Region="174, 498, 204, 48" />
@@ -456,6 +464,12 @@
       <p:CVScope.UseLocalServer>
         <InArgument x:TypeArguments="x:Boolean" />
       </p:CVScope.UseLocalServer>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </p:CVScope>
   </Sequence>
 </Activity>

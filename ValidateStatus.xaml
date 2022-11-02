@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,533</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,564</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -62,13 +62,13 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidateStatus" sap:VirtualizedContainerService.HintSize="918,468" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity will check if the transaction item was succes, failed or skip and send the status to the next activity" DisplayName="ValidateStatus" sap:VirtualizedContainerService.HintSize="918,499" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <If Condition="[String.IsNullOrEmpty(in_ExceptionText)]" DisplayName="Validate Status" sap:VirtualizedContainerService.HintSize="876,376" sap2010:WorkflowViewState.IdRef="If_1">

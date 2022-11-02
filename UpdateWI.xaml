@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,801</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,858</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UpdateWI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,16 +86,16 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateWI" sap:VirtualizedContainerService.HintSize="376,736" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="The following activity will update the workitem typing the hash code generated and changing the status as completed only needs the ShaCode generated" DisplayName="UpdateWI" sap:VirtualizedContainerService.HintSize="376,793" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Updating workItem" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Updating workItem&quot;]" />
+    <ui:LogMessage DisplayName="Updating workItem" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Updating workItem&quot;]" />
     <Sequence sap2010:Annotation.AnnotationText="In this section the bot will be in charge of add the sha code to workitem" DisplayName="Update Work Item" sap:VirtualizedContainerService.HintSize="334,291" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -421,7 +421,7 @@
               <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
             </ActivityAction.Argument>
             <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (35,287,381,44)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Ad Comments:' (37,270,88,8)&quot;]" DesignTimeCacheId="e77a2bc8-35e1-443e-80a6-6c1cbde71053" DesignTimeScaleFactor="1" DisplayName="Add hash" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="a75bc91f81162941e892dd6e8ffdb275" Text="[in_ShaCode]" TimeoutMS="5000" Version="V3">
+              <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (35,287,381,44)&quot; +&#xA;&quot;Anchor: Text 'Ad Comments:' (37,270,88,8)&quot;]" DesignTimeCacheId="e77a2bc8-35e1-443e-80a6-6c1cbde71053" DesignTimeScaleFactor="1" DisplayName="Add hash" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="a75bc91f81162941e892dd6e8ffdb275" Text="[in_ShaCode]" TimeoutMS="5000" Version="V3">
                 <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                   <uc:CvDescriptor>
                     <uc:CvDescriptor.Anchors>
@@ -445,7 +445,7 @@
                   </ui:Target>
                 </p:CvTypeIntoWithDescriptor.Target>
               </p:CvTypeIntoWithDescriptor>
-              <p:CvSelectItemWithDescriptor DeselectAfter="{x:Null}" InRegion="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: ArrowButton (190,365,18,23)&quot; +&#xD;&#xA;&quot;Anchor: Text 'ti Status:' (38,345,62,8)&quot;]" DesignTimeCacheId="e77a2bc8-35e1-443e-80a6-6c1cbde71053" DesignTimeScaleFactor="1" DisplayName="Select Completed" EmptyField="False" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvSelectItemWithDescriptor_1" InformativeScreenshot="481573d87bf08dd8edadf43c03523599" Text="[&quot;C&quot;]" TimeoutMS="5000" Version="V3">
+              <p:CvSelectItemWithDescriptor DeselectAfter="{x:Null}" InRegion="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: ArrowButton (190,365,18,23)&quot; +&#xA;&quot;Anchor: Text 'ti Status:' (38,345,62,8)&quot;]" DesignTimeCacheId="e77a2bc8-35e1-443e-80a6-6c1cbde71053" DesignTimeScaleFactor="1" DisplayName="Select Completed" EmptyField="False" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvSelectItemWithDescriptor_1" InformativeScreenshot="481573d87bf08dd8edadf43c03523599" Text="[&quot;C&quot;]" TimeoutMS="5000" Version="V3">
                 <p:CvSelectItemWithDescriptor.DesignTimeDescriptor>
                   <uc:CvDescriptor>
                     <uc:CvDescriptor.Anchors>
@@ -513,8 +513,8 @@
         <p:CVScope.DesignTimeCacheContainer>
           <uc:CvCacheContainer>
             <uc:CvCacheContainer.Caches>
-              <scg:List x:TypeArguments="uc:CVCache" Capacity="3">
-                <uc:CVCache DisplayName="Update Screen" Id="e77a2bc8-35e1-443e-80a6-6c1cbde71053" InformativeScreenshot="5914d6588255f02059095388e2930e50" LogicalPosition="8, 0" OcrText="@ ACME System 1 - Google Chrome - oO x&#xD;&#xA;@ acme-test.uipath.com/work-items/update/88074218 a&#xD;&#xA;[Es |&#xD;&#xA;Update Work [tem&#xD;&#xA;win: 7321s&#xD;&#xA;Types Cause lent Secu Hash&#xD;&#xA;Status: Open&#xD;&#xA;Dates 20221026&#xD;&#xA;Comments:&#xD;&#xA;Ad Comments:&#xD;&#xA;ti Status:&#xD;&#xA;| # Undatoworkem |&#xD;&#xA;Copyiht @ 202 ACHE Systems" Position="8, 0">
+              <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
+                <uc:CVCache DisplayName="Update Screen" Id="e77a2bc8-35e1-443e-80a6-6c1cbde71053" InformativeScreenshot="5914d6588255f02059095388e2930e50" LogicalPosition="8, 0" OcrText="@ ACME System 1 - Google Chrome - oO x&#xA;@ acme-test.uipath.com/work-items/update/88074218 a&#xA;[Es |&#xA;Update Work [tem&#xA;win: 7321s&#xA;Types Cause lent Secu Hash&#xA;Status: Open&#xA;Dates 20221026&#xA;Comments:&#xA;Ad Comments:&#xA;ti Status:&#xA;| # Undatoworkem |&#xA;Copyiht @ 202 ACHE Systems" Position="8, 0">
                   <uc:CVCache.CvUiElements>
                     <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
                       <uc:CvElementInfo Category="InputBox" Region="35, 287, 381, 44" />
@@ -586,7 +586,7 @@
                     </scg:List>
                   </uc:CVCache.OcrTexts>
                 </uc:CVCache>
-                <uc:CVCache DisplayName="Update Screen 1" Id="0f546022-0682-4137-a59e-38264eb26f7c" InformativeScreenshot="7f8439f27561c6ce5f2ce8eb6cd10a57" LogicalPosition="8, 0" OcrText="@ ACME System 1 - Google Chrome - oO x&#xD;&#xA;@ acme-test.uipath.com/work-items/update/88074209 a&#xD;&#xA;[Es |&#xD;&#xA;Update Work [tem&#xD;&#xA;win: 073209&#xD;&#xA;Types Calcul lent Secu Hash&#xD;&#xA;Status: Open&#xD;&#xA;Dates 2016.05.10&#xD;&#xA;Comments:&#xD;&#xA;Ad Comments:&#xD;&#xA;ti Status:&#xD;&#xA;| # Undatoworkem |&#xD;&#xA;Copyiht @ 202 ACHE Systems" Position="8, 0">
+                <uc:CVCache DisplayName="Update Screen 1" Id="0f546022-0682-4137-a59e-38264eb26f7c" InformativeScreenshot="7f8439f27561c6ce5f2ce8eb6cd10a57" LogicalPosition="8, 0" OcrText="@ ACME System 1 - Google Chrome - oO x&#xA;@ acme-test.uipath.com/work-items/update/88074209 a&#xA;[Es |&#xA;Update Work [tem&#xA;win: 073209&#xA;Types Calcul lent Secu Hash&#xA;Status: Open&#xA;Dates 2016.05.10&#xA;Comments:&#xA;Ad Comments:&#xA;ti Status:&#xA;| # Undatoworkem |&#xA;Copyiht @ 202 ACHE Systems" Position="8, 0">
                   <uc:CVCache.CvUiElements>
                     <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
                       <uc:CvElementInfo Category="InputBox" Region="35, 287, 381, 44" />
@@ -706,6 +706,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SendHotkey>
-    <ui:LogMessage DisplayName="Finish Updating workItem" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Finish Updating workItem&quot;]" />
+    <ui:LogMessage DisplayName="Finish Updating workItem" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Finish Updating workItem&quot;]" />
   </Sequence>
 </Activity>

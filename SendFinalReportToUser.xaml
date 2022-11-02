@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,424</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,466</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SendFinalReportToUser_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -81,7 +81,7 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendFinalReportToUser" sap:VirtualizedContainerService.HintSize="376,359" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="It need the mail asset credential in order to connect to SMTP and send the final report to the user." DisplayName="SendFinalReportToUser" sap:VirtualizedContainerService.HintSize="376,401" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="x:String" Name="username" />
@@ -89,6 +89,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_MailAsset]" DisplayName="Get Mail Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />

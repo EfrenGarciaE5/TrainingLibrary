@@ -16,7 +16,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1088</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,1247</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateQueueItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -79,7 +79,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateQueueItems" sap:VirtualizedContainerService.HintSize="476,1023" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of read what the GetWorkItems activity extract and send it to orchestrator as queue items" DisplayName="CreateQueueItems" sap:VirtualizedContainerService.HintSize="476,1182" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ItemsToProcess" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Queues" />
@@ -87,12 +87,13 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log " sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Uploading queue items&quot;]" />
+    <ui:LogMessage DisplayName="Log " sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Uploading queue items&quot;]" />
     <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_ItemsToProcess]" Delimitator="Comma" DisplayName="Read File With Work Items" FilePath="[in_FileToProcess]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_3" />
-    <ui:LogMessage DisplayName="Getting one column" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Getting one column&quot;]" />
-    <ui:FilterDataTable DataTable="[dt_ItemsToProcess]" DisplayName="Get DT For The Queues" FilterRowsMode="[SelectMode.Keep]" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Queues]" SelectColumnsMode="[SelectMode.Keep]">
+    <ui:LogMessage DisplayName="Getting one column" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Getting one column&quot;]" />
+    <ui:FilterDataTable DataTable="[dt_ItemsToProcess]" DisplayName="Get DT For The Queues" FilterRowsMode="[SelectMode.Keep]" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Queues]" SelectColumnsMode="[SelectMode.Keep]">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -106,8 +107,8 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:LogMessage DisplayName="Creating queues" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Creating queues&quot;]" />
+    <ui:LogMessage DisplayName="Creating queues" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Creating queues&quot;]" />
     <ui:BulkAddQueueItems TimeoutMS="{x:Null}" DisplayName="Upload Queue Items" FolderPath="[in_QueueFolder]" sap:VirtualizedContainerService.HintSize="434,132" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_1" QueueItemsDataTable="[dt_Queues]" QueueName="[in_QueueName]" />
-    <ui:LogMessage DisplayName="Finishing uploaded items" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Data upload finished&quot;]" />
+    <ui:LogMessage DisplayName="Finishing uploaded items" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Data upload finished&quot;]" />
   </Sequence>
 </Activity>

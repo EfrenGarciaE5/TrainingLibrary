@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1355</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,1397</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_Sha_Code_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -87,19 +87,19 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Get_Sha_Code" sap:VirtualizedContainerService.HintSize="476,1290" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of generate the sha code the one needed to update the workitem" DisplayName="Get_Sha_Code" sap:VirtualizedContainerService.HintSize="476,1332" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="UiBrowser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Getting Sha Code" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting Sha Code&quot;]" />
+    <ui:LogMessage DisplayName="Getting Sha Code" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Getting Sha Code&quot;]" />
     <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" DisplayName="generate and get  hash code" sap:VirtualizedContainerService.HintSize="434,845" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
       <p:CVScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -107,7 +107,7 @@
             <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
-            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (500,252,321,22)&quot; +&#xD;&#xA;&quot;Anchor: Button (829,253,47,22)&quot;]" DesignTimeCacheId="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" DesignTimeScaleFactor="1" DisplayName="Type text" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="f0461de74946949ddc9e27cdcc5118d5" Text="[in_HashText]" TimeoutMS="5000" Version="V3">
+            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: InputBox (500,252,321,22)&quot; +&#xA;&quot;Anchor: Button (829,253,47,22)&quot;]" DesignTimeCacheId="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" DesignTimeScaleFactor="1" DisplayName="Type text" EmptyField="True" sap:VirtualizedContainerService.HintSize="400,184" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="f0461de74946949ddc9e27cdcc5118d5" Text="[in_HashText]" TimeoutMS="5000" Version="V3">
               <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -131,7 +131,7 @@
                 </ui:Target>
               </p:CvTypeIntoWithDescriptor.Target>
             </p:CvTypeIntoWithDescriptor>
-            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Button (829,253,47,22)&quot; +&#xD;&#xA;&quot;Anchor: Text 'SHA1 and other hash functions online generator' (374,208,619,23)&quot;]" DesignTimeCacheId="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" DesignTimeScaleFactor="1" DisplayName="Click Hash" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="063514413307a197f0ebdd3c41a0e567" KeyModifiers="None" MouseButton="BTN_LEFT" TimeoutMS="5000" Version="V3">
+            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Button (829,253,47,22)&quot; +&#xA;&quot;Anchor: Text 'SHA1 and other hash functions online generator' (374,208,619,23)&quot;]" DesignTimeCacheId="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" DesignTimeScaleFactor="1" DisplayName="Click Hash" sap:VirtualizedContainerService.HintSize="400,136" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="063514413307a197f0ebdd3c41a0e567" KeyModifiers="None" MouseButton="BTN_LEFT" TimeoutMS="5000" Version="V3">
               <p:CvClickWithDescriptor.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -165,7 +165,7 @@
                 </ui:Target>
               </p:CvClickWithDescriptor.Target>
             </p:CvClickWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (519,260,480,22)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Result for shal:' (352,264,157,14)&quot;]" DesignTimeCacheId="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" DesignTimeScaleFactor="1" DisplayName="Get sha code" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="bf405468ba8785da547e9a1263ea61db" RefreshBefore="True" Result="[out_ShaCode]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (519,260,480,22)&quot; +&#xA;&quot;Anchor: Text 'Result for shal:' (352,264,157,14)&quot;]" DesignTimeCacheId="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" DesignTimeScaleFactor="1" DisplayName="Get sha code" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="bf405468ba8785da547e9a1263ea61db" RefreshBefore="True" Result="[out_ShaCode]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -189,7 +189,7 @@
         <uc:CvCacheContainer>
           <uc:CvCacheContainer.Caches>
             <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
-              <uc:CVCache DisplayName="Hash code" Id="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" InformativeScreenshot="b8c3e9d73267b7c4a0539f892f122fb4" LogicalPosition="0, 0" OcrText="Home Page | SHAL in JAVA | Secure password generator | Linux&#xD;&#xA;SHA1 and other hash functions online generator&#xD;&#xA;| RNSB561-Alvaro&#xD;&#xA;Dash-France (hash |&#xD;&#xA;|sha-1 v|&#xD;&#xA;Result for shal: 33198f8488b027b51389dfbce958e65d5107e0f0&#xD;&#xA;'SHA-1 MDS5 on Wikipedia&#xD;&#xA;We love SPAIN and oldpics.org&#xD;&#xA;MES EX&#xD;&#xA;TORT Pr ART a TT — = _RT=v=mn | -" Position="0, 0">
+              <uc:CVCache DisplayName="Hash code" Id="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" InformativeScreenshot="b8c3e9d73267b7c4a0539f892f122fb4" LogicalPosition="0, 0" OcrText="Home Page | SHAL in JAVA | Secure password generator | Linux&#xA;SHA1 and other hash functions online generator&#xA;| RNSB561-Alvaro&#xA;Dash-France (hash |&#xA;|sha-1 v|&#xA;Result for shal: 33198f8488b027b51389dfbce958e65d5107e0f0&#xA;'SHA-1 MDS5 on Wikipedia&#xA;We love SPAIN and oldpics.org&#xA;MES EX&#xA;TORT Pr ART a TT — = _RT=v=mn | -" Position="0, 0">
                 <uc:CVCache.CvUiElements>
                   <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
                     <uc:CvElementInfo Category="ArrowButton" Region="1349, 0, 17, 18" />
@@ -270,7 +270,7 @@
                   </scg:List>
                 </uc:CVCache.OcrTexts>
               </uc:CVCache>
-              <uc:CVCache DisplayName="Main Screen" Id="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" InformativeScreenshot="9edff2761e80b63c924e6d0cc26c0f5a" LogicalPosition="0, 0" OcrText="J I sat one x| + voo- x&#xD;&#xA;&amp; &gt; CA Notseaure | shal-online.com ex @aO0Q :&#xD;&#xA;Home Page | SHA1 in JAVA | Secure password generator | Linux&#xD;&#xA;SHA1 and other hash functions online generator&#xD;&#xA;I | sha-1 v|&#xD;&#xA;SHA-1 MDS on Wikipedia&#xD;&#xA;We love SPAIN and oldpics.org" Position="0, 0">
+              <uc:CVCache DisplayName="Main Screen" Id="5b6d4244-2320-4e32-b5cd-fa9fdcc4b671" InformativeScreenshot="9edff2761e80b63c924e6d0cc26c0f5a" LogicalPosition="0, 0" OcrText="J I sat one x| + voo- x&#xA;&amp; &gt; CA Notseaure | shal-online.com ex @aO0Q :&#xA;Home Page | SHA1 in JAVA | Secure password generator | Linux&#xA;SHA1 and other hash functions online generator&#xA;I | sha-1 v|&#xA;SHA-1 MDS on Wikipedia&#xA;We love SPAIN and oldpics.org" Position="0, 0">
                 <uc:CVCache.CvUiElements>
                   <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
                     <uc:CvElementInfo Category="Icon" Region="44, 41, 21, 20" />
@@ -408,6 +408,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:LogMessage DisplayName="Finish getting SHA Code" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Finish getting SHA Code&quot;]" />
+    <ui:LogMessage DisplayName="Finish getting SHA Code" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Finish getting SHA Code&quot;]" />
   </Sequence>
 </Activity>

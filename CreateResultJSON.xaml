@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1866</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,1897</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateResultJSON_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -81,7 +81,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateResultJSON" sap:VirtualizedContainerService.HintSize="687,1801" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity generates the json file that the bot need to execute the end task execution activity" DisplayName="CreateResultJSON" sap:VirtualizedContainerService.HintSize="687,1832" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="MiddleInformation" />
       <Variable x:TypeArguments="x:String" Name="FinalWI" />
@@ -94,6 +94,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_FinalReport]" Delimitator="Comma" DisplayName="Read Final Report" FilePath="[in_FinalReportPath]" sap:VirtualizedContainerService.HintSize="645,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />

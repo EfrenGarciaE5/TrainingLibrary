@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,917</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,989</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateRecordsFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,27 +59,35 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateRecordsFile" sap:VirtualizedContainerService.HintSize="526,852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Validates if records file exists or creates a new one also as output it has the record information" DisplayName="CreateRecordsFile" sap:VirtualizedContainerService.HintSize="526,924" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="RecordsFileExists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:PathExists DisplayName="Records Path Exists" Exists="[RecordsFileExists]" sap:VirtualizedContainerService.HintSize="484,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_RecordsFilePath]" PathType="File" />
-    <If Condition="[RecordsFileExists=False]" DisplayName="If Records File Doesnt exists create it" sap:VirtualizedContainerService.HintSize="484,512" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[RecordsFileExists=False]" DisplayName="If Records File Doesnt exists create it" sap:VirtualizedContainerService.HintSize="484,542" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Creating Records File" sap:VirtualizedContainerService.HintSize="376,325" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Creating Records File" sap:VirtualizedContainerService.HintSize="376,355" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <WriteLine DisplayName="Create Records File" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Creating Records File" />
+          <ui:LogMessage DisplayName="Create Records File" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Creating Records File&quot;]" />
           <ui:WriteTextFile DisplayName="Create Records File" FileName="[in_RecordsFilePath]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
             <ui:WriteTextFile.Text>
               <InArgument x:TypeArguments="x:String">

@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LoginACME" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_AssetCredentialACME" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Asset stored in the orchestrator that has the ACME credentials to login" Name="in_AssetCredentialACME" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,2372</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,2795</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginACME_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -88,13 +88,14 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LoginACME" sap:VirtualizedContainerService.HintSize="845,2307" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of logging into the ACME web portal." DisplayName="LoginACME" sap:VirtualizedContainerService.HintSize="845,2730" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="TitleExists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Login into ACME Page" sap:VirtualizedContainerService.HintSize="803,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Login into ACME Portal&quot;]" />
@@ -118,7 +119,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OCRTextExists>
-    <Switch x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="We are now looking if we are already logged or needs to login or if the portal is down, and send an error" DisplayName="Look if we are already logged or needs to login or if the portal is down" Expression="[TitleExists]" sap:VirtualizedContainerService.HintSize="803,1906" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="We are now looking if we are already logged or needs to login or if the portal is down, and send an error" DisplayName="Look if we are already logged or needs to login or if the portal is down" Expression="[TitleExists]" sap:VirtualizedContainerService.HintSize="803,2298" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -127,7 +128,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage x:Key="True" DisplayName="Nothing to do, already logged..." sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Nothing to do, already logged...&quot;]" />
-      <Sequence x:Key="False" DisplayName="Log or Throw Error" sap:VirtualizedContainerService.HintSize="763,1669" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence x:Key="False" DisplayName="Log or Throw Error" sap:VirtualizedContainerService.HintSize="763,2061" sap2010:WorkflowViewState.IdRef="Sequence_6">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="LoginTitleExists" />
         </Sequence.Variables>
@@ -164,7 +165,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:OCRTextExists>
-        <If Condition="[LoginTitleExists = True]" DisplayName="If login title exists" sap:VirtualizedContainerService.HintSize="721,1285" sap2010:WorkflowViewState.IdRef="If_1">
+        <If Condition="[LoginTitleExists = True]" DisplayName="If login title exists" sap:VirtualizedContainerService.HintSize="721,1677" sap2010:WorkflowViewState.IdRef="If_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -172,7 +173,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence DisplayName="Login into System1" sap:VirtualizedContainerService.HintSize="476,1127" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Login into System1" sap:VirtualizedContainerService.HintSize="476,1519" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <Sequence.Variables>
                 <Variable x:TypeArguments="ss:SecureString" Name="password" />
                 <Variable x:TypeArguments="x:String" Name="username" />
@@ -184,7 +185,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_AssetCredentialACME]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />
-              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="239cbf29-09e5-4065-9069-13255051cee7" DisplayName="Login" sap:VirtualizedContainerService.HintSize="434,916" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
+              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="239cbf29-09e5-4065-9069-13255051cee7" DisplayName="Login" sap:VirtualizedContainerService.HintSize="434,1308" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
                 <p:CVScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -251,7 +252,7 @@
                           </ui:Target>
                         </ui:SendHotkey.Target>
                       </ui:SendHotkey>
-                      <ui:InterruptibleDoWhile Condition="[TitleExists=False]" DisplayName="Wait Until Connect" sap:VirtualizedContainerService.HintSize="400,51" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                      <ui:InterruptibleDoWhile Condition="[TitleExists=False]" DisplayName="Wait Until Connect" sap:VirtualizedContainerService.HintSize="400,443" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                         <ui:InterruptibleDoWhile.Body>
                           <ui:OCRTextExists sap2010:Annotation.AnnotationText="This activity is in charge to detect if the main title of our portal is already there, that means that we are already logged" DisplayName="Validate correct login" sap:VirtualizedContainerService.HintSize="334,278" sap2010:WorkflowViewState.IdRef="OCRTextExists_3" Occurrence="1" Result="[TitleExists]" Text="Dashboard">
                             <ui:OCRTextExists.OCREngine>
@@ -276,7 +277,7 @@
                         </ui:InterruptibleDoWhile.Body>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>

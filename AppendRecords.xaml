@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,417</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>390,331</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AppendRecords_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,10 +66,11 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AppendRecords" sap:VirtualizedContainerService.HintSize="376,224" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is only in charge of append the woritem to the records file to avoid duplicated executions" DisplayName="AppendRecords" sap:VirtualizedContainerService.HintSize="376,266" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:AppendLine DisplayName="Append To Records File" FileName="[in_RecordsFile]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[in_WorkItemFromQueue]" UseDefaultEncoding="False" />

@@ -19,7 +19,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,2068</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>934,2125</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetWorkItemsDetails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -98,16 +98,16 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetWorkItemsDetails" sap:VirtualizedContainerService.HintSize="476,2003" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity will extract the workitem details and store them in variables and pass them to the next activity it needs the work item that is processing in order to navigate to that specific page." DisplayName="GetWorkItemsDetails" sap:VirtualizedContainerService.HintSize="476,2060" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Getting Details" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Getting Details&quot;]" />
+    <ui:LogMessage DisplayName="Getting Details" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Getting Details&quot;]" />
     <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Open WorkItem ID Details " BrowserType="Chrome" DisplayName="Attach System1 Page" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="543f07204502e4f8ae54a0aeb1298573" Selector="&lt;html app='chrome.exe' title='ACME System 1 *' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -140,7 +140,7 @@
             <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (380,324,48,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client ID:' (332,324,47,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Client ID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="f28fbe932ed4888e89a8f90dd5fc6c95" RefreshBefore="True" Result="[out_ClientID]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (380,324,48,8)&quot; +&#xA;&quot;Anchor: Text 'Client ID:' (332,324,47,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Client ID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="f28fbe932ed4888e89a8f90dd5fc6c95" RefreshBefore="True" Result="[out_ClientID]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -154,7 +154,7 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (399,339,81,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Glient Name:' (332,339,67,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get ClientName" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_2" InformativeScreenshot="c98c7ff2dadf05b3e82aeec0af5c7f85" RefreshBefore="False" Result="[out_ClientName]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (399,339,81,8)&quot; +&#xA;&quot;Anchor: Text 'Glient Name:' (332,339,67,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get ClientName" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_2" InformativeScreenshot="c98c7ff2dadf05b3e82aeec0af5c7f85" RefreshBefore="False" Result="[out_ClientName]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -168,7 +168,7 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (411,354,21,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Client County:' (332,354,81,10)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Client Country" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_3" InformativeScreenshot="1cea8266a14e84661386c22172d8c33d" RefreshBefore="False" Result="[out_Country]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (411,354,21,10)&quot; +&#xA;&quot;Anchor: Text 'Client County:' (332,354,81,10)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Client Country" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_3" InformativeScreenshot="1cea8266a14e84661386c22172d8c33d" RefreshBefore="False" Result="[out_Country]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -182,7 +182,7 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (662,341,51,8)&quot; +&#xD;&#xA;&quot;Anchor: Text 'WIID:' (630,341,28,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get WIID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_4" InformativeScreenshot="aec9d8ed180fb324dfb298ff4228a314" RefreshBefore="False" Result="[out_WIID]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (662,341,51,8)&quot; +&#xA;&quot;Anchor: Text 'WIID:' (630,341,28,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get WIID" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_4" InformativeScreenshot="aec9d8ed180fb324dfb298ff4228a314" RefreshBefore="False" Result="[out_WIID]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -196,7 +196,7 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (664,339,142,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Type:' (634,339,30,10)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Type" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_5" InformativeScreenshot="77ddfa218dec5d7e7ded6ce4f72c929d" RefreshBefore="True" Result="[out_Type]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (664,339,142,10)&quot; +&#xA;&quot;Anchor: Text 'Type:' (634,339,30,10)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Type" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_5" InformativeScreenshot="77ddfa218dec5d7e7ded6ce4f72c929d" RefreshBefore="False" Result="[out_Type]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -210,7 +210,7 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (663,369,60,8)&quot; +&#xA;&quot;Anchor: Text 'Date:' (635,369,25,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Date" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_6" InformativeScreenshot="e9c25f3e75717c0c8c5f3a54751a66b6" RefreshBefore="True" Result="[out_WIDDate]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (663,369,60,8)&quot; +&#xA;&quot;Anchor: Text 'Date:' (635,369,25,8)&quot;]" DesignTimeCacheId="1e6c88bd-2358-44c4-845b-0223ff998cf8" DesignTimeScaleFactor="1" DisplayName="Get Date" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_6" InformativeScreenshot="e9c25f3e75717c0c8c5f3a54751a66b6" RefreshBefore="False" Result="[out_WIDDate]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -233,8 +233,8 @@
       <p:CVScope.DesignTimeCacheContainer>
         <uc:CvCacheContainer>
           <uc:CvCacheContainer.Caches>
-            <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
-              <uc:CVCache DisplayName="Details screen" Id="1e6c88bd-2358-44c4-845b-0223ff998cf8" InformativeScreenshot="69e8b91bd90d52df3df7760cbb4f018c" LogicalPosition="0, 0" OcrText="ro oN&#xD;&#xA;J [01] ACME System 1- Work Items ~~ X | + vooo- X&#xD;&#xA;&amp; &gt; C #&amp; acme-testuipath.com/work-items/88074218 Q 2 % Wl &amp; O oO :&#xD;&#xA;Work Items - Work Item Details&#xD;&#xA;Home / Work Items / Work Item Details&#xD;&#xA;| Calculate Client Security Hash |&#xD;&#xA;Client Information Details Work Item Details&#xD;&#xA;Client ID: RN58561 WIID: 88074218&#xD;&#xA;Client Name: Alvaro Dash Type: Calculate Client Security Hash&#xD;&#xA;Client Country: France Status: Open&#xD;&#xA;Date: 2022-10-26&#xD;&#xA;# Update Work Item |&#xD;&#xA;Copyright © 2022 ACME Systems" Position="0, 0">
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+              <uc:CVCache DisplayName="Details screen" Id="1e6c88bd-2358-44c4-845b-0223ff998cf8" InformativeScreenshot="69e8b91bd90d52df3df7760cbb4f018c" LogicalPosition="0, 0" OcrText="ro oN&#xA;J [01] ACME System 1- Work Items ~~ X | + vooo- X&#xA;&amp; &gt; C #&amp; acme-testuipath.com/work-items/88074218 Q 2 % Wl &amp; O oO :&#xA;Work Items - Work Item Details&#xA;Home / Work Items / Work Item Details&#xA;| Calculate Client Security Hash |&#xA;Client Information Details Work Item Details&#xA;Client ID: RN58561 WIID: 88074218&#xA;Client Name: Alvaro Dash Type: Calculate Client Security Hash&#xA;Client Country: France Status: Open&#xA;Date: 2022-10-26&#xA;# Update Work Item |&#xA;Copyright © 2022 ACME Systems" Position="0, 0">
                 <uc:CVCache.CvUiElements>
                   <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
                     <uc:CvElementInfo Category="Button" Region="630, 426, 128, 28" />
@@ -435,6 +435,6 @@
         <InArgument x:TypeArguments="x:String">[out_ClientID+"-"+out_ClientName+"-"+out_Country]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Finish Getting Details" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Finish Getting Details&quot;]" />
+    <ui:LogMessage DisplayName="Finish Getting Details" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Finish Getting Details&quot;]" />
   </Sequence>
 </Activity>
