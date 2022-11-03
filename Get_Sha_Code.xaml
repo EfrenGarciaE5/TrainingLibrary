@@ -1,12 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Get_Sha_Code" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Get_Sha_Code" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Hash text to be introduced, comming from the previous activity&#xA;" Name="in_HashText" Type="InArgument(uc:CvString)" />
     <x:Property sap2010:Annotation.AnnotationText="Sha Code Generated" Name="out_ShaCode" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Browser UI to work with and close the tab" Name="in_BrowserUISha" Type="InArgument(ui:Browser)" />
   </x:Members>
+  <this:Get_Sha_Code.in_BrowserUISha>
+    <InArgument x:TypeArguments="ui:Browser" />
+  </this:Get_Sha_Code.in_BrowserUISha>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,1397</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>815,1514</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_Sha_Code_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -89,7 +93,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of generate the sha code the one needed to update the workitem" DisplayName="Get_Sha_Code" sap:VirtualizedContainerService.HintSize="476,1332" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of generate the sha code the one needed to update the workitem" DisplayName="Get_Sha_Code" sap:VirtualizedContainerService.HintSize="476,1449" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="UiBrowser" />
     </Sequence.Variables>
@@ -165,7 +169,7 @@
                 </ui:Target>
               </p:CvClickWithDescriptor.Target>
             </p:CvClickWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (519,260,480,22)&quot; +&#xA;&quot;Anchor: Text 'Result for shal:' (352,264,157,14)&quot;]" DesignTimeCacheId="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" DesignTimeScaleFactor="1" DisplayName="Get sha code" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="bf405468ba8785da547e9a1263ea61db" RefreshBefore="True" Result="[out_ShaCode]" TimeoutMS="5000" Version="V3">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (519,260,480,22)&quot; +&#xA;&quot;Anchor: Text 'Result for shal:' (352,264,157,14)&quot;]" DesignTimeCacheId="77bec4ef-6077-4fe6-aa84-cf6c36bf1903" DesignTimeScaleFactor="1" DisplayName="Get sha code" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_1" InformativeScreenshot="bf405468ba8785da547e9a1263ea61db" RefreshBefore="False" Result="[out_ShaCode]" TimeoutMS="5000" Version="V3">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -392,7 +396,7 @@
         <InArgument x:TypeArguments="x:Boolean" />
       </p:CVScope.UseLocalServer>
     </p:CVScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="Chrome" DisplayName="Attach SHA browser" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="499fbe00f5341ad971974be814b3f3bc" Selector="&lt;html app='chrome.exe' title='SHA1 online' /&gt;" UiBrowser="[UiBrowser]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_BRowserUISha]" BrowserType="Chrome" DisplayName="Attach SHA browser" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="499fbe00f5341ad971974be814b3f3bc" UiBrowser="[UiBrowser]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -403,7 +407,7 @@
       </ui:BrowserScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>

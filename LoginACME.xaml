@@ -1,11 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LoginACME" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Asset stored in the orchestrator that has the ACME credentials to login" Name="in_AssetCredentialACME" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Browser UI to login" Name="BrowserUILogin" Type="InOutArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,2795</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>835,1830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginACME_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -88,7 +89,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of logging into the ACME web portal." DisplayName="LoginACME" sap:VirtualizedContainerService.HintSize="845,2730" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity is in charge of logging into the ACME web portal." DisplayName="LoginACME" sap:VirtualizedContainerService.HintSize="845,1765" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="TitleExists" />
     </Sequence.Variables>
@@ -119,7 +120,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OCRTextExists>
-    <Switch x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="We are now looking if we are already logged or needs to login or if the portal is down, and send an error" DisplayName="Look if we are already logged or needs to login or if the portal is down" Expression="[TitleExists]" sap:VirtualizedContainerService.HintSize="803,2298" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="We are now looking if we are already logged or needs to login or if the portal is down, and send an error" DisplayName="Look if we are already logged or needs to login or if the portal is down" Expression="[TitleExists]" sap:VirtualizedContainerService.HintSize="803,1333" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -128,7 +129,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:LogMessage x:Key="True" DisplayName="Nothing to do, already logged..." sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Nothing to do, already logged...&quot;]" />
-      <Sequence x:Key="False" DisplayName="Log or Throw Error" sap:VirtualizedContainerService.HintSize="763,2061" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence x:Key="False" DisplayName="Log or Throw Error" sap:VirtualizedContainerService.HintSize="763,1096" sap2010:WorkflowViewState.IdRef="Sequence_6">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="LoginTitleExists" />
         </Sequence.Variables>
@@ -165,7 +166,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:OCRTextExists>
-        <If Condition="[LoginTitleExists = True]" DisplayName="If login title exists" sap:VirtualizedContainerService.HintSize="721,1677" sap2010:WorkflowViewState.IdRef="If_1">
+        <If Condition="[LoginTitleExists = True]" DisplayName="If login title exists" sap:VirtualizedContainerService.HintSize="721,712" sap2010:WorkflowViewState.IdRef="If_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,7 +174,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence DisplayName="Login into System1" sap:VirtualizedContainerService.HintSize="476,1519" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Login into System1" sap:VirtualizedContainerService.HintSize="476,554" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <Sequence.Variables>
                 <Variable x:TypeArguments="ss:SecureString" Name="password" />
                 <Variable x:TypeArguments="x:String" Name="username" />
@@ -185,7 +186,22 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_AssetCredentialACME]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[username]" />
-              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="239cbf29-09e5-4065-9069-13255051cee7" DisplayName="Login" sap:VirtualizedContainerService.HintSize="434,1308" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
+              <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[BrowserUILogin]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+                <ui:BrowserScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                  </ActivityAction>
+                </ui:BrowserScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:BrowserScope>
+              <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="239cbf29-09e5-4065-9069-13255051cee7" DisplayName="Login" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CVScope_1" Version="V3">
                 <p:CVScope.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -362,7 +378,28 @@
                 <p:CVScope.UseLocalServer>
                   <InArgument x:TypeArguments="x:Boolean" />
                 </p:CVScope.UseLocalServer>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </p:CVScope>
+              <ui:BrowserScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Browser="[BrowserUILogin]" BrowserType="Chrome" DisplayName="Logged" sap:VirtualizedContainerService.HintSize="434,161" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="1b2e56a12e5252846938189bfc849b1e" Selector="&lt;html app='chrome.exe' title='ACME System 1 - Dashboard' /&gt;" UiBrowser="[BrowserUILogin]">
+                <ui:BrowserScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                  </ActivityAction>
+                </ui:BrowserScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:BrowserScope>
             </Sequence>
           </If.Then>
           <If.Else>
